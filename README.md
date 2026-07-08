@@ -1,4 +1,4 @@
-# Email Assistant
+# Email Assistant Using Crew AI
 
 CrewAI-based assistant that reads unread Gmail messages, classifies them, and drafts replies using
 an LLM.
