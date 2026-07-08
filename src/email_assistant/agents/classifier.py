@@ -1,14 +1,6 @@
-from crewai import Agent
+from crewai import LLM, Agent
 
-def create_email_classifier_agent(llm):
-
-    return Agent(
-        role="Email Classifier",
-
-        goal="""
-Classify every email into exactly one category.
-""",
-        backstory="""
+_BACKSTORY = """
 You are an expert email classification system.
 
 Available Categories:
@@ -50,7 +42,14 @@ WORK
 PERSONAL
 PROMOTION
 SPAM
-""",
+"""
+
+
+def create_email_classifier_agent(llm: LLM) -> Agent:
+    return Agent(
+        role="Email Classifier",
+        goal="Classify every email into exactly one category.",
+        backstory=_BACKSTORY,
         llm=llm,
-        verbose=True
+        verbose=True,
     )
